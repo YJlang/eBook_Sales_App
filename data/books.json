@@ -1,20 +1,20 @@
 [
     {
-        "title": "Python Programming Essentials",
+        "title": "Python eBook",
         "author": "John Doe",
-        "description": "Learn the essentials of Python programming in this comprehensive guide.",
-        "cover_image": "images/book1_cover.jpg",
-        "file": "ebooks/book1.pdf",
-        "price": 9.99,
-        "purchase_link": "https://yourpaymentlink.com/book1"
+        "description": "Learn Python programming.",
+        "price": "19.99",
+        "cover_image": "images/python_ebook.jpg",
+        "file": "samples/python_ebook_sample.pdf",
+        "purchase_link": "https://toss.me/johndoe/1"
     },
     {
-        "title": "Advanced Data Science with Python",
+        "title": "Data Science eBook",
         "author": "Jane Smith",
-        "description": "Master advanced data science techniques with Python.",
-        "cover_image": "images/book2_cover.jpg",
-        "file": "ebooks/book2.pdf",
-        "price": 14.99,
-        "purchase_link": "https://yourpaymentlink.com/book2"
+        "description": "Master data science techniques.",
+        "price": "29.99",
+        "cover_image": "images/data_science_ebook.jpg",
+        "file": "samples/data_science_ebook_sample.pdf",
+        "purchase_link": "https://toss.me/janesmith/1"
     }
 ]

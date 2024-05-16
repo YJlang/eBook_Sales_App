@@ -51,8 +51,21 @@ tabs = [book['title'] for book in books]
 tabs.insert(0, "All Books")
 selected_tab = st.selectbox("Choose a book", tabs)
 
+# 결제 성공 및 실패 페이지 처리
+page = st.experimental_get_query_params().get('page', [None])[0]
+if page == 'success':
+    st.success("Payment successful! Here is your download link:")
+    book_title = st.experimental_get_query_params().get('title', [None])[0]
+    book = next((book for book in books if book['title'] == book_title), None)
+    if book:
+        st.markdown(f"[Download {book['title']}]({book['file']})", unsafe_allow_html=True)
+    else:
+        st.error('Book not found!')
+elif page == 'fail':
+    st.error("Payment failed or canceled. Please try again.")
+
 # "All Books" 탭 처리
-if selected_tab == "All Books":
+elif selected_tab == "All Books":
     # 전자책을 3열 레이아웃으로 배치
     cols_per_row = 3
     rows = [books[i:i + cols_per_row] for i in range(0, len(books), cols_per_row)]
@@ -78,8 +91,11 @@ if selected_tab == "All Books":
                     """,
                     unsafe_allow_html=True
                 )
+
+                # 구매 버튼 생성 (토스 결제 링크 연동)
                 if st.button(f"Buy {book['title']}", key=book['title']):
-                    st.write(f"Please go to [this link]({book['purchase_link']}) to purchase.")
+                    purchase_link = f"{book['purchase_link']}?page=success&title={book['title']}"
+                    st.write(f"Please go to [this link]({purchase_link}) to purchase.")
                 st.markdown('---')
 
 # 개별 전자책 탭 처리
@@ -101,13 +117,13 @@ else:
                 <h2 class='book-title'>{book['title']}</h2>
                 <h4 class='book-author'>by {book['author']}</h4>
                 <p>{book['description']}</p>
-                <p style='font-weight
                 <p style='font-weight: bold;'>Price: ${book['price']}</p>
                 """,
                 unsafe_allow_html=True
             )
             if st.button(f"Buy {book['title']}", key=f"buy-{book['title']}"):
-                st.write(f"Please go to [this link]({book['purchase_link']}) to purchase.")
+                purchase_link = f"{book['purchase_link']}?page=success&title={book['title']}"
+                st.write(f"Please go to [this link]({purchase_link}) to purchase.")
 
         st.markdown('---')
 
@@ -117,7 +133,7 @@ else:
             - **Title:** {book['title']}
             - **Author:** {book['author']}
             - **Price:** ${book['price']}
-            - **Purchase Link:** [Click Here]({book['purchase_link']})
+            - **Purchase Link:** [Click Here]({purchase_link})
             """
         )
 
