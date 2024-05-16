@@ -146,8 +146,8 @@ st.sidebar.markdown('---')
 st.sidebar.title('Contact Us')
 st.sidebar.info(
     '''
-    - Email: info@ebookstore.com
-    - Phone: +1 (555) 123-4567
-    - Address: 123 eBook Lane, Booktown, BK 12345
+    - Email: sean111400@naver.com
+    - Phone: +82 (10) 4604-6774
+    - Address: S.K.U Media Software Engineering
     '''
 )
