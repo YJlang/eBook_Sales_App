@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Python Programming Essentials",
+        "author": "John Doe",
+        "description": "Learn the essentials of Python programming in this comprehensive guide.",
+        "cover_image": "images/book1_cover.jpg",
+        "file": "ebooks/book1.pdf",
+        "price": 9.99,
+        "purchase_link": "https://yourpaymentlink.com/book1"
+    },
+    {
+        "title": "Advanced Data Science with Python",
+        "author": "Jane Smith",
+        "description": "Master advanced data science techniques with Python.",
+        "cover_image": "images/book2_cover.jpg",
+        "file": "ebooks/book2.pdf",
+        "price": 14.99,
+        "purchase_link": "https://yourpaymentlink.com/book2"
+    }
+]
